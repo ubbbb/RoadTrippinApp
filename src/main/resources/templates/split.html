@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout :: layout(~{::.container})}">
+<body>
+<div class="container">
+
+    <div>
+        <div>
+            <div class="uk-card uk-card-secondary uk-card-body">
+                <h3 class="uk-card-title">SUMA WSZYSTKICH WYDATKÓW</h3>
+                <p>5.99 PLN</p>
+            </div>
+        </div>
+        <div>
+            <div class="uk-card uk-card-secondary uk-card-body">
+                <h3 class="uk-card-title">WYDATKI NA OSOBĘ:</h3>
+                <p>1.50 PLN</p>
+            </div>
+        </div>
+    </div>
+
+    <table class="uk-table">
+        <thead>
+        <tr>
+            <th>Użytkownik</th>
+            <th>Saldo</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr>
+            <td>USER 1</td>
+            <td>-1.50 PLN</td>
+        </tr>
+        <tr>
+            <td>USER 2</td>
+            <td>-1.50 PLN</td>
+        </tr>
+        <tr>
+            <td>JOHN DOE</td>
+            <td><a th:href="@{/trip-app/user-details}">5,99 PLN</a></td>
+        </tr>
+        <tr>
+            <td>USER 4</td>
+            <td>-1.50 PLN</td>
+        </tr>
+        </tbody>
+
+    </table>
+
+    <a th:href="@{/trip-app/desktop}"><input class="uk-button-large uk-button-primary" type="button" value="Powrót"></a>
+
+</div>
+</body>
+</html>

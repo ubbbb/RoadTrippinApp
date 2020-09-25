@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout :: layout(~{::.container})}">
+<body>
+
+<div class="container">
+
+    <h1>Dodaj wydatek:</h1>
+
+    <form class="uk-form-horizontal uk-margin-large" style="width: 500px">
+
+        <div class="uk-margin">
+            <label class="uk-form-label" for="form-horizontal-text">Kwota</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" id="form-horizontal-text" type="text"
+                       placeholder="Wprowadź hajsy jakie wydałaś/eś...">
+            </div>
+        </div>
+
+        <div class="uk-margin">
+            <label class="uk-form-label" for="form-horizontal-text">Data</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" id="form-horizontal-text" type="text"
+                       placeholder="Pamiętasz kiedy tyle wydałaś/eś?">
+            </div>
+        </div>
+
+        <div class="uk-margin">
+            <label class="uk-form-label" for="form-horizontal-text">Opis</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" id="form-horizontal-text" type="text"
+                       placeholder="Założę się, że nie pamiętasz na co...">
+            </div>
+        </div>
+
+        <div class="uk-margin">
+            <label class="uk-form-label" for="form-horizontal-select">Użytkownik</label>
+            <div class="uk-form-controls">
+                <select class="uk-select" id="form-horizontal-select">
+                    <option>User 1</option>
+                    <option>User 2</option>
+                    <option>John Doe</option>
+                    <option>User 4</option>
+                </select>
+            </div>
+        </div>
+
+        <a th:href="@{/trip-app/desktop}">
+            <input class="uk-button-large uk-button-primary" value="Zapisz"></a>
+
+    </form>
+
+</div>
+
+</body>
+</html>

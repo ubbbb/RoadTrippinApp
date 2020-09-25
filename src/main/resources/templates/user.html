@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout :: layout(~{::.container})}">
+<body>
+<div class="container">
+
+    <div class="uk-flex" style="width: fit-content">
+
+        <div>
+            <span style="margin-top: auto; margin-bottom: auto" class="uk-text-lead">John Doe</span>
+            <button uk-icon="pencil" class="uk-button-secondary"></button>
+            <button uk-icon="trash" class="uk-button-danger"></button>
+        </div>
+
+    </div>
+
+
+    <table class="uk-table">
+        <thead>
+        <tr>
+            <th>Lp.</th>
+            <th>Kwota</th>
+            <th>Data</th>
+            <th>Opis</th>
+            <th>Akcje</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr>
+            <td>1</td>
+            <td>5.99 PLN</td>
+            <td>15.09.2020</td>
+            <td>Coca Cola</td>
+            <td>
+                <button uk-icon="pencil" class="uk-button-secondary"></button>
+                <button uk-icon="trash" class="uk-button-danger"></button>
+            </td>
+        </tr>
+        </tbody>
+
+    </table>
+
+    <h2>SUMA: 5.99 PLN</h2>
+
+    <a th:href="@{/trip-app/desktop}"><input class="uk-button-large uk-button-primary" type="button" value="Powrót"></a>
+
+</div>
+</body>
+</html>

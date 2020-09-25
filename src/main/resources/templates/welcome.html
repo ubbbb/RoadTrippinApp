@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout :: layout(~{::.container})}">
+<body>
+<div class="container">
+    <h1>Dodaj podróżujących:</h1>
+
+    <form>
+
+        <div class="uk-margin">
+            <div class="uk-inline">
+                <span class="uk-form-icon" uk-icon="icon: user"></span>
+                <input class="uk-input" type="text" placeholder="User 1">
+            </div>
+        </div>
+
+        <div class="uk-margin">
+            <div class="uk-inline">
+                <span class="uk-form-icon" uk-icon="icon: user"></span>
+                <input class="uk-input" type="text" placeholder="User 2">
+            </div>
+        </div>
+
+        <div class="uk-margin">
+            <div class="uk-inline">
+                <span class="uk-form-icon" uk-icon="icon: user"></span>
+                <input class="uk-input" type="text" placeholder="John Doe">
+            </div>
+        </div>
+
+        <div class="uk-margin">
+            <div class="uk-inline">
+                <span class="uk-form-icon" uk-icon="icon: user"></span>
+                <input class="uk-input" type="text" placeholder="User 4">
+            </div>
+        </div>
+
+        <a href="#"><input type="button"
+                           class="uk-button-primary uk-button-large uk-position-large uk-text-lead"
+                           value="+"></a>
+
+        <a th:href="@{/trip-app/desktop}">
+            <input class="uk-button-large uk-button-primary" value="Zapisz"></a>
+
+    </form>
+
+</div>
+</body>
+</html>
