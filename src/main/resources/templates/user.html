@@ -3,12 +3,16 @@
 <body>
 <div class="container">
 
-    <div class="uk-flex" style="width: fit-content">
+    <div class="uk-flex" style="width: fit-content" th:object="${user}">
 
         <div>
-            <span style="margin-top: auto; margin-bottom: auto" class="uk-text-lead">John Doe</span>
-            <button uk-icon="pencil" class="uk-button-secondary"></button>
-            <button uk-icon="trash" class="uk-button-danger"></button>
+            <span th:text="${user.name}" style="margin-top: auto; margin-bottom: auto" class="uk-text-lead"></span>
+            <a th:href="@{/trip-app/users/{id}(id=${user.id})}">
+                <button uk-icon="pencil" class="uk-button-secondary"></button>
+            </a>
+            <a th:href="@{/trip-app/users/del/{id}(id=${user.id})}">
+                <button uk-icon="trash" class="uk-button-danger"></button>
+            </a>
         </div>
 
     </div>
@@ -42,7 +46,7 @@
 
     <h2>SUMA: 5.99 PLN</h2>
 
-    <a th:href="@{/trip-app/desktop}"><input class="uk-button-large uk-button-primary" type="button" value="Powrót"></a>
+    <a th:href="@{/trip-app}"><input class="uk-button-large uk-button-primary" type="button" value="Powrót"></a>
 
 </div>
 </body>

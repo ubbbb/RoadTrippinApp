@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout :: layout(~{::.container})}">
+<body>
+
+<div class="container">
+    <div class="uk-margin-large-top uk-padding uk-position-top-center uk-card-hover uk-card-large">
+        <form th:object="${user}" th:action="@{/trip-app/users}" method="post">
+            <h2>Użytkownik</h2>
+            <input th:field="*{id}" type="number" hidden>
+            <div class="uk-margin-large-bottom">
+                <label>Nazwa</label>
+                <input th:field="*{name}" type="text">
+            </div>
+            <input class="uk-button uk-button-large uk-button-primary" type="submit" value="Zapisz">
+            <a th:href="@{./}"><input class="uk-button uk-button-large uk-button-danger" type="button"
+                                      value="Anuluj"></a>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

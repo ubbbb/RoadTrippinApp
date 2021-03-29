@@ -1,6 +1,7 @@
 package com.example.roadtrippin.domain;
 
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -14,9 +15,10 @@ public class Expense implements SplitCalc {
 
     @Id
     private long id;
-    @ManyToOne
+    /*@ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    private User user;*/
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDateTime date;
     private BigDecimal amount;
     private String description;
@@ -30,4 +32,5 @@ public class Expense implements SplitCalc {
     public BigDecimal userTotalExpenses(List<Expense> userExpenses) {
         return null;
     }
+
 }

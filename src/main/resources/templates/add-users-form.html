@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout :: layout(~{::.container})}">
+<body>
+<div class="container uk-card uk-card-default uk-card-hover uk-card-body uk-position-center uk-overlay uk-overlay-default"
+     th:width="250px">
+    <h1>Dodaj podróżujących:</h1>
+
+    <form th:action="@{/trip-app/users/save}" th:object="form" method="post">
+
+        <table>
+            <thead>
+            <tr>
+                <th hidden>ID</th>
+                <th>Nazwa użytkownika</th>
+            </tr>
+            </thead>
+            <tbody class="form-body">
+            <tr class="single-user-row" th:each="user, itemStat: *{users}" >
+                <td hidden><input th:field="*{users[__${itemStat.index}__].id}"></td>
+                <td><input th:placeholder="user" th:field="*{users[__${itemStat.index}__].name}"></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <input type="button"
+                class="uk-button-large uk-button-primary uk-text-lead add-row"
+                th:value="Kolejny">
+
+        <input type="submit" class="uk-button-large uk-button-primary uk-text-lead" th:value="Zapisz">
+
+    </form>
+
+</div>
+</body>
+</html>

@@ -2,74 +2,46 @@
 <html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout :: layout(~{::.container})}">
 <body>
 <div class="container">
+    <div class="uk-margin-auto uk-padding uk-position-top-center">
+        <h1>Użytkownicy</h1>
+        <table class="uk-table uk-table-striped uk-width-auto">
+            <thead>
+            <tr>
+                <th>Lp.</th>
+                <th>Nazwa</th>
+                <th>Akcje</th>
+            </tr>
+            </thead>
 
-    <table class="uk-table">
-        <thead>
-        <tr>
-            <th>Lp.</th>
-            <th>Nazwa</th>
-            <th>Data utworzenia</th>
-            <th>Data modyfikacji</th>
-            <th>Saldo</th>
-            <th>Akcje</th>
-        </tr>
-        </thead>
+            <tbody>
 
-        <tbody>
-        <tr>
-            <td>1</td>
-            <td>User 1</td>
-            <td>13.09.2020 22:00:00</td>
-            <td>14.09.2020 01:34:22</td>
-            <td>-1,50 PLN</td>
-            <td>
-                <button uk-icon="pencil" class="uk-button-secondary"></button>
-                <button uk-icon="trash" class="uk-button-danger"></button>
+            <tr th:each="user: ${users}">
+                <td th:text="${user.id}"></td>
+                <td th:text="${user.name}"></td>
+                <td>
+                    <a th:href="@{/trip-app/users/{id}(id=${user.id})}">
+                        <button uk-icon="pencil" class="uk-button-secondary"></button>
+                    </a>
+                    <a th:href="@{/trip-app/users/del/{id}(id=${user.id})}">
+                        <button uk-icon="trash" class="uk-button-danger"></button>
+                    </a>
+                </td>
+            </tr>
+
+            <td colspan="3" th:if="${users.isEmpty()}"><h3 th:text="#{user.notFound}"></h3><a
+                    th:href="@{/trip-app/users/new}"><input
+                    class="uk-button uk-button-large uk-button-secondary" type="button" value="Nowy użytkownik"></a>
             </td>
-        </tr>
 
-        <tr>
-            <td>2</td>
-            <td>User 2</td>
-            <td>13.09.2020 22:01:33</td>
-            <td>13.09.2020 23:59:59</td>
-            <td>-1,50 PLN</td>
-            <td>
-                <button uk-icon="pencil" class="uk-button-secondary"></button>
-                <button uk-icon="trash" class="uk-button-danger"></button>
+            <td colspan="3" th:if="!(${users.isEmpty()})"><a th:href="@{/trip-app/users/new}"><input
+                    class="uk-button uk-button-large uk-button-secondary" type="button" value="Kolejny użytkownik"></a>
             </td>
-        </tr>
+            </tbody>
 
-        <tr>
-            <td>3</td>
-            <td>John Doe</td>
-            <td>13.09.2020 22:02:15</td>
-            <td>13.09.2020 22:02:15</td>
-            <td>5,99 PLN</td>
-            <td>
-                <button uk-icon="pencil" class="uk-button-secondary"></button>
-                <button uk-icon="trash" class="uk-button-danger"></button>
-            </td>
-        </tr>
+        </table>
 
-        <tr>
-            <td>4</td>
-            <td>User 4</td>
-            <td>13.09.2020 22:04:00</td>
-            <td>13.09.2020 22:04:00</td>
-            <td>-1,50 PLN</td>
-            <td>
-                <button uk-icon="pencil" class="uk-button-secondary"></button>
-                <button uk-icon="trash" class="uk-button-danger"></button>
-            </td>
-        </tr>
-
-        </tbody>
-
-    </table>
-
-    <a th:href="@{/trip-app/desktop}"><input class="uk-button-large uk-button-primary" type="button" value="Powrót"></a>
-
+        <a th:href="@{/trip-app}"><input class="uk-button-large uk-button-primary" type="button" value="Powrót"></a>
+    </div>
 </div>
 </body>
 </html>

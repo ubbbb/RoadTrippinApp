@@ -1,40 +1,47 @@
 package com.example.roadtrippin.controller;
 
-import com.example.roadtrippin.domain.User;
+import com.example.roadtrippin.dto.ExpenseDto;
+import com.example.roadtrippin.service.ExpenseService;
+import com.example.roadtrippin.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@RequestMapping("/trip-app")
 public class MainController {
 
-    @GetMapping("/trip-app")
-    public String welcome(Model model) {
-        model.addAttribute("user", new User());
-        return "welcome";
+    UserService userService;
+    ExpenseService expenseService;
+
+    public MainController(UserService userService, ExpenseService expenseService) {
+        this.userService = userService;
+        this.expenseService = expenseService;
     }
 
-    @GetMapping("/trip-app/desktop")
-    public String desktop() {
-        return "desktop";
+    @GetMapping("")
+    public String desktop(Model model) {
+        model.addAttribute("users", userService.list());
+        model.addAttribute("expenses", expenseService.list());
+        return "home";
     }
 
-    @GetMapping("/trip-app/add-expense")
-    public String addExpense() {
-        return "expense";
-    }
-
-    @GetMapping("/trip-app/user-details")
-    public String userDetails() {
+    @GetMapping("/users/{id}/expenses")
+    public String userExpenses(@PathVariable int id, Model model) {
+        model.addAttribute("user", userService.get(id));
         return "user";
     }
 
-    @GetMapping("/trip-app/users")
-    public String users() {
-        return "users";
+
+    @GetMapping("/add-expense")
+    public String addExpense(Model model) {
+        model.addAttribute("expense", expenseService.create(new ExpenseDto()));
+        return "expense";
     }
 
-    @GetMapping("/trip-app/split")
+    @GetMapping("/split")
     public String splitExpenses() {
         return "split";
     }

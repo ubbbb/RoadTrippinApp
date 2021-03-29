@@ -2,10 +2,8 @@ package com.example.roadtrippin.domain;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -14,10 +12,12 @@ import java.util.List;
 public class User {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String name;
-    @OneToMany(mappedBy = "user")
-    private List<Expense> expenses;
+/*    private List<Row> rows = new ArrayList<Row>();*/
+/*    @OneToMany(mappedBy = "user")
+    private List<Expense> expenses;*/
 
 
 }

@@ -13,11 +13,13 @@ ol a {
     color: black;
     text-decoration: none;
     display: block;
+
 }
 
 ol > li {
+    padding:  0px 25px 0px 25px;
     float: left;
-    width: 150px;
+    width: fit-content;
     height: 40px;
 }
 
