@@ -17,7 +17,7 @@
 
             <tr th:each="user: ${users}">
                 <td th:text="${user.id}"></td>
-                <td th:text="${user.name}"></td>
+                <td class="uk-table-link"><a class="uk-link-muted" th:href="@{/trip-app/users/{id}/expenses(id=${user.id})}" th:text="${user.name}"></a></td>
                 <td>
                     <a th:href="@{/trip-app/users/{id}(id=${user.id})}">
                         <button uk-icon="pencil" class="uk-button-secondary"></button>

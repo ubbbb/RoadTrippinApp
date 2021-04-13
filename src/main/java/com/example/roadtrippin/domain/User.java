@@ -3,7 +3,6 @@ package com.example.roadtrippin.domain;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -15,9 +14,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String name;
-/*    private List<Row> rows = new ArrayList<Row>();*/
-/*    @OneToMany(mappedBy = "user")
-    private List<Expense> expenses;*/
-
+    @OneToMany(mappedBy = "user")
+    private List<Expense> expenses;
 
 }

@@ -22,11 +22,11 @@
             </nav>
         </div>
     </div>
-    <a th:href="@{/trip-app/add-expense}"><input type="button"
-                                                 class="uk-button-primary uk-button-large uk-position-large uk-position-top-right uk-text-lead"
-                                                 value="+"
-                                                 uk-tooltip="title: Dodaj wydatek"></a>
-    <table class="uk-table">
+    <a th:href="@{/trip-app/expenses/new}"><input type="button"
+                                                  class="uk-button-primary uk-button-large uk-position-large uk-position-top-right uk-text-lead"
+                                                  value="+"
+                                                  uk-tooltip="title: Dodaj wydatek"></a>
+    <table class="uk-table uk-table-hover uk-align-center">
         <thead>
         <tr>
             <th>Lp.</th>
@@ -44,7 +44,7 @@
             <td th:text="${expense.amount}"></td>
             <td th:text="${expense.date}"></td>
             <td th:text="${expense.description}"></td>
-            <td>John Doe</td>
+            <td th:text="${expense.user.name}"></td>
             <td>
                 <button uk-icon="pencil" class="uk-button-secondary"></button>
                 <button uk-icon="trash" class="uk-button-danger"></button>

@@ -34,13 +34,6 @@ public class MainController {
         return "user";
     }
 
-
-    @GetMapping("/add-expense")
-    public String addExpense(Model model) {
-        model.addAttribute("expense", expenseService.create(new ExpenseDto()));
-        return "expense";
-    }
-
     @GetMapping("/split")
     public String splitExpenses() {
         return "split";

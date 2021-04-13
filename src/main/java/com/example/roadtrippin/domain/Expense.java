@@ -6,31 +6,21 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Data
 @Entity
 @Table(name = "expenses")
-public class Expense implements SplitCalc {
+public class Expense {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    /*@ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;*/
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDateTime date;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+    /*    @DateTimeFormat(pattern = "yyyy-MM-dd")*/
+    private String date; //LocalDateTime temporary replaced
     private BigDecimal amount;
     private String description;
-
-    @Override
-    public BigDecimal splitPerUser(List<Expense> expenses) {
-        return null;
-    }
-
-    @Override
-    public BigDecimal userTotalExpenses(List<Expense> userExpenses) {
-        return null;
-    }
 
 }

@@ -13,7 +13,7 @@ public interface ExpenseMapper {
 
     Expense toExpense(ExpenseDto dto);
 
-
+    Iterable<Expense> toExpenseDB(List<ExpenseDto> expenseDtoList);
 
     List<ExpenseDto> toDTO(List<Expense> expenseList);
 

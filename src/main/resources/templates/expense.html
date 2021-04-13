@@ -4,51 +4,53 @@
 
 <div class="container">
 
-    <h1>Dodaj wydatek:</h1>
+    <div class="uk-margin-large-top uk-padding uk-position-top-center uk-card-hover uk-card-large">
 
-    <form class="uk-form-horizontal uk-margin-large" style="width: 500px" th:object="${expense}" th:action="@{#}" method="post" >
+        <h1>Dodaj wydatek:</h1>
 
-        <div class="uk-margin">
-            <label class="uk-form-label" for="form-horizontal-text">Kwota</label>
-            <div class="uk-form-controls">
-                <input th:field="*{amount}" class="uk-input" id="form-horizontal-text" type="number" step="0.01"
-                       placeholder="Wprowadź hajsy jakie wydałaś/eś...">
+        <form class="uk-form-horizontal uk-margin-large" style="width: 500px" th:object="${expense}"
+              th:action="@{/trip-app/expenses}"
+              method="post">
+
+            <div class="uk-margin">
+                <label class="uk-form-label" for="form-horizontal-text">Kwota</label>
+                <div class="uk-form-controls">
+                    <input th:field="*{amount}" class="uk-input" id="form-horizontal-text" type="number" step="0.01"
+                           placeholder="Wprowadź hajsy jakie wydałaś/eś...">
+                </div>
             </div>
-        </div>
 
-        <div class="uk-margin">
-            <label class="uk-form-label" for="form-horizontal-text">Data</label>
-            <div class="uk-form-controls">
-                <input th:field="*{date}" class="uk-input" id="form-horizontal-text" type="date"
-                       placeholder="Pamiętasz kiedy tyle wydałaś/eś?">
+            <div class="uk-margin">
+                <label class="uk-form-label" for="form-horizontal-text">Data</label>
+                <div class="uk-form-controls">
+                    <input th:field="*{date}" class="uk-input" id="form-horizontal-text" type="date"
+                           placeholder="Pamiętasz kiedy tyle wydałaś/eś?">
+                </div>
             </div>
-        </div>
 
-        <div class="uk-margin">
-            <label class="uk-form-label" for="form-horizontal-text">Opis</label>
-            <div class="uk-form-controls">
-                <input th:field="*{description}" class="uk-input" id="form-horizontal-text" type="text"
-                       placeholder="Założę się, że nie pamiętasz na co...">
+            <div class="uk-margin">
+                <label class="uk-form-label" for="form-horizontal-text">Opis</label>
+                <div class="uk-form-controls">
+                    <input th:field="*{description}" class="uk-input" id="form-horizontal-text" type="text"
+                           placeholder="Założę się, że nie pamiętasz na co...">
+                </div>
             </div>
-        </div>
 
-        <div class="uk-margin">
-            <label class="uk-form-label" for="form-horizontal-select">Użytkownik</label>
-            <div class="uk-form-controls">
-                <select class="uk-select" id="form-horizontal-select">
-                    <option>User 1</option>
-                    <option>User 2</option>
-                    <option>John Doe</option>
-                    <option>User 4</option>
-                </select>
+            <div class="uk-margin">
+                <label class="uk-form-label" for="form-horizontal-select">Użytkownik</label>
+                <div class="uk-form-controls">
+                    <select th:field="*{user}" class="uk-select" id="form-horizontal-select" type="">
+                        <option th:each="u : ${users}" th:value="${u}" th:text="${u.name}"></option>
+                    </select>
+                </div>
             </div>
-        </div>
 
-        <a th:href="@{/trip-app/desktop}">
-            <input class="uk-button-large uk-button-primary" value="Zapisz"></a>
+            <input class="uk-button uk-button-large uk-button-primary" type="submit" value="Zapisz">
+            <a th:href="@{./}"><input class="uk-button uk-button-large uk-button-danger" type="button"
+                                      value="Anuluj"></a>
 
-    </form>
-
+        </form>
+    </div>
 </div>
 
 </body>
